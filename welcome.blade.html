@@ -1,0 +1,1397 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IQ online ordering system</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+  <!-- Header Section -->
+  <header class="text-white sticky-top">
+    <nav class="navbar navbar-expand-lg" style="background-color: var(--main-bg-color);">
+      <div class="container-fluid">
+        <a class="navbar-brand mb-0 h1 text-white" href="#">IQ Corners</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Order & Pickup</a>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light text-white" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div class="container py-3">
+      <!-- Tabs -->
+      <ul class="nav nav-tabs justify-content-center bg-success-subtle py-1 rounded-pill shadow border border-black"
+        id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active rounded-pill py-1 mx-1 text-white" id="burger-tab" data-bs-toggle="tab"
+            data-bs-target="#burger" type="button" role="tab" aria-controls="burger" aria-selected="true"
+            style="background-color: var(--main-bg-color);">Burger</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-pill py-1 mx-1 text-white" id="pizza-tab" data-bs-toggle="tab"
+            data-bs-target="#pizza" type="button" role="tab" aria-controls="pizza" aria-selected="false"
+            style="background-color: var(--main-bg-color);">Pizza</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-pill py-1 mx-1 text-white" id="cake-tab" data-bs-toggle="tab"
+            data-bs-target="#cake" type="button" role="tab" aria-controls="cake" aria-selected="false"
+            style="background-color: var(--main-bg-color);">Cake</button>
+        </li>
+      </ul>
+      <div class="text-end">
+        <button class="rounded-pill px-3 py-2 border border-1 shadow text-white position-relative"
+          style="background-color: var(--main-bg-color);" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#thankYouOffcanvas" aria-controls="thankYouOffcanvas">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-danger"
+            id="cartItemCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Section -->
+  <div class="main">
+    <!-- Tab Content -->
+    <div class="tab-content" id="myTabContent">
+      <!-- Content for "Burger" Tab -->
+      <div class="tab-pane fade show active" id="burger" role="tabpanel" aria-labelledby="burger-tab">
+        <div class="container py-3">
+          <div class="row d-flex align-items-stretch">
+            <!-- Item 1: Special Burger -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">395 ETB</p>
+                </div>
+                <div class="card-body pb-0">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Special Burger</h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-lg- col-md-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="burger1">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 2: Double special Burger -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">455 ETB</p>
+                </div>
+                <div class="card-body pb-0">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Double special Burger</h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="burger2">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 3: Cheese Burger -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">355 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Cheese Burger </h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="burger3">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 4: Double Cheese Burger -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">395 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Double Cheese Burger </h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="burger4">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 5: Beef Burger -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">295 birr</p>
+                </div>               
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Beef Burger</h5>  
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="burger5">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 6: Double Beef Burger -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">375 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Double Beef Burger</h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="burger6">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 7: Egg Burger -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">315 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Egg Burger </h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="burger7">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 8: Double Egg Burger -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">395 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Double Egg Burger </h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="burger8">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 9: Tuna Sandwich -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">295 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Tuna Sandwich</h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="burger9">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 10: Club Sandwich with Beef -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">395 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Club Sandwich with Beef</h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="burger10">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 11: Club Sandwich with Tuna -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">465 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Club Sandwich with Tuna </h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="burger11">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 12: French Fries -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">180 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">French Fries </h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="burger12">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <!-- Item 13: Fasting Sandwich -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">465 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Fasting Sandwich</h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="burger13">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content for "Pizza" Tab -->
+      <div class="tab-pane fade show" id="pizza" role="tabpanel" aria-labelledby="pizza-tab">
+        <div class="container py-3">
+          <div class="row">
+            <!-- Item 1: Iq special pizza -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">535 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Iq special pizza</h5>
+                    </div>
+                    <p class="card-text">tomato sauce, mozzarella cheese, mushroom, slice beef, tuna, olive, oregano,
+                      beef, chicken, egg</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="pizza1">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 2: Margarita Pizza -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">415 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Margarita Pizza</h5>
+                    </div>
+                    <p class="card-text">tomato sauce, cheese, oregano</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="pizza2">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 3: Beef Oriental Pizza -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">405 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Beef Oriental Pizza </h5>
+                    </div>
+                    <p class="card-text">tomato sauce, mozzarella cheese, beef, onion, green pepper</p>
+                  </div>
+                </div>
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="Pizza3">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 4: Special Pizza -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">495 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Special Pizza </h5>
+                    </div>
+                    <p class="card-text">tomato sauce, mozzarella cheese, tuna, beef, olive, onion, green pepper,
+                      mushroom</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="pizza4">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 5: Chicken Pizza -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">465 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Chicken Pizza</h5>
+                    </div>
+                    <p class="card-text">tomato sauce, mozzarella cheese, chicken, olive, onion, oregano</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="pizza5">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 6: Fasting pizza -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">395 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Fasting pizza</h5>
+                    </div>
+                    <p class="card-text">tomato sauce, vegetable, olive, onion, green pepper, mushroom</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="pizza6">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 7: Altono Pizza -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">455 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Altono Pizza </h5>
+                    </div>
+                    <p class="card-text">tomato sauce, mozzarella cheese, olive, onion, green pepper, tuna</p>
+                  </div>
+                </div>
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="pizza7">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 8: Four Season Piza -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">465 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Four Season Piza </h5>
+                    </div>
+                    <p class="card-text">tomato sauce, tuna, slice beef, cheese, olive, chicken</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="pizza8">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 9: Tuna  Pizza-->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">465 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Tuna Pizza</h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="pizza9">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content for "Cake" Tab -->
+      <div class="tab-pane fade show" id="cake" role="tabpanel" aria-labelledby="cake-tab">
+        <div class="container py-3">
+          <div class="row">
+            <!-- Item 1: Boxegn -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">120 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Boxegn</h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="cake1">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 2: Iq Special cake -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">120 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Iq Special cake</h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="cake2">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 3: Chocolate Chips  -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">120 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Chocolate Chips </h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="cake3">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 4: Swiss Roll -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">120 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Swiss Roll </h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="cake4">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 5: Black Forest -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">120 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Black Forest</h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="cake5">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 6: White Forest -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">120 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold"> White Forest</h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="cake6">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 7: Cupcake -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">80 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Cupcake </h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="cake7">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 8: Tramizo Cake-->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">120 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Tramizo Cake </h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="cake8">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 9: Chocolate Cake-->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">120 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Chocolate Cake</h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="cake9">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 10: Caramel Cake -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">120 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Caramel Cake</h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="cake10">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 11: English Cake -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">90 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">English Cake </h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="cake11">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 12: Fasting Cake -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">120 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Fasting Cake</h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="cake12">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 13: Carrot Cake -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+              <div class="card border border-0 h-100 shadow rounded-4">
+                <div class="position-relative">
+                  <img src="burger.png" class="card-img-top rounded-4 hover-opacity" alt="Veggie Burger">
+                  <p class="price fw-bold position-absolute bottom-0 end-0 bg-white rounded-pill px-3 py-1 m-2 border border-black">120 birr</p>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="mb-auto">
+                    <div class="d-flex justify-content-between">
+                      <h5 class="card-title fw-bold">Carrot Cake</h5>
+                    </div>
+                    <p class="card-text">Fresh veggies and special sauce in a whole wheat bun</p>
+                  </div>
+                </div>
+                <div class="card-footer bg-white border-0 container-lg mt-auto">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-between align-items-center gap-3">
+                        <button type="button" area-label="Add item"
+                          class="rounded-pill px-3 py-2 border border-1 shadow w-100 text-white add-to-cart-btn"
+                          style="background-color: var(--main-bg-color);" data-item-id="cake13">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- More Tabs... -->
+    </div>
+  </div>
+
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="thankYouOffcanvas" aria-labelledby="offcanvasLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title h3" style="color: var(--main-bg-color)" id="offcanvasLabel">My Orders:</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <!-- Container for the item details -->
+      <div id="selectedItemDetails">
+
+      </div>
+
+      <button type="button" aria-label="Checkout"
+        class="btn-checkout rounded-pill px-3 py-2 border border-1 shadow w-100 text-white"
+        style="background-color: var(--main-bg-color);" data-item-id="burger1" id="checkoutButton" disabled>
+        Checkout
+        <span id="spinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="text-center" style="background-color: rgba(84, 134, 135, 0.35) !important">
+    <!-- Grid container -->
+    <div class="container pt-4">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a class="btn btn-link btn-floating btn-lg text-body m-1" href="#!" role="button"><i
+            class="fab fa-facebook-f"></i></a>
+
+        <!-- Twitter -->
+        <a class="btn btn-link btn-floating btn-lg text-body m-1" href="#!" role="button"><i
+            class="fab fa-twitter"></i></a>
+
+        <!-- Tiktok -->
+        <a class="btn btn-link btn-floating btn-lg text-body m-1" href="#!" role="button"><i
+            class="fab fa-tiktok"></i></a>
+
+        <!-- Instagram -->
+        <a class="btn btn-link btn-floating btn-lg text-body m-1" href="#!" role="button"><i
+            class="fab fa-instagram"></i></a>
+
+      </section>
+      <!-- Section: Social media -->
+
+      <!-- Horizontal sections -->
+      <div class="row text-start">
+        <!-- Section: Contact -->
+        <div class="col-md-4 mb-4">
+          <section>
+            <h5>Contact Us</h5>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Cafe Street, Food City, FC 12345</p>
+            <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+            <p><i class="fas fa-envelope"></i> contact@cafe-restaurant.com</p>
+          </section>
+        </div>
+        <!-- Section: Contact -->
+
+        <!-- Section: Opening Hours -->
+        <div class="col-md-4 mb-4">
+          <section>
+            <h5>Opening Hours</h5>
+            <p>Monday - Friday: 8:00 AM - 10:00 PM</p>
+            <p>Saturday - Sunday: 9:00 AM - 11:00 PM</p>
+          </section>
+        </div>
+        <!-- Section: Opening Hours -->
+
+        <!-- Section: About -->
+        <div class="col-md-4 mb-4">
+          <section>
+            <h5>About Us</h5>
+            <p>Welcome to our cafe and restaurant, where we serve delicious meals and beverages made from the freshest
+              ingredients. Join us for a delightful dining experience.</p>
+          </section>
+        </div>
+        <!-- Section: About -->
+      </div>
+      <!-- Horizontal sections -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3 text-white" style="background-color: var(--main-bg-color);">
+      © 2024 Copyright:
+      <a class="text-body" href="https://cafe-restaurant.com/">Cafe-Restaurant.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var selectedItems = {};
+    const DELIVERY_CHARGE = 5.00;
+    const TAX_RATE = 0.15;
+
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        button.addEventListener('click', function () {
+          var itemId = this.getAttribute('data-item-id');
+          addItemToCart(itemId);
+          showOffcanvas();
+        });
+      });
+
+      function addItemToCart(itemId) {
+        var card = document.querySelector(`[data-item-id="${itemId}"]`).closest('.card');
+        var itemName = card.querySelector('.card-title').textContent;
+        var priceText = card.querySelector('.price').textContent;
+        var singlePrice = parseFloat(priceText.replace(/^\$\s*/, ''));
+        var quantity = 1; // Default quantity is 1
+        // Check if item already exists in the cart. If so, update the quantity and total. Otherwise, add as a new item.
+        if (selectedItems[itemId]) {
+          selectedItems[itemId].quantity += quantity; // Update existing quantity
+          selectedItems[itemId].total += quantity * singlePrice; // Update total price
+        } else {
+          selectedItems[itemId] = { itemName, quantity, total: quantity * singlePrice }; // Add new item
+        }
+        updateOffcanvasTable();
+        updateCartItemCount();
+      }
+
+      function updateCartItemCount() {
+        var itemCount = 0;
+        Object.values(selectedItems).forEach(item => {
+          itemCount += item.quantity;
+        });
+        document.getElementById('cartItemCount').textContent = itemCount;
+
+        // Enable or disable the checkout button based on the item count
+        const checkoutButton = document.querySelector('.btn-checkout');
+        if (itemCount > 0) {
+          checkoutButton.removeAttribute('disabled');
+        } else {
+          checkoutButton.setAttribute('disabled', 'true');
+        }
+      }
+
+
+      function showOffcanvas() {
+        var offcanvasElement = document.getElementById('thankYouOffcanvas');
+        var offcanvasInstance = new bootstrap.Offcanvas(offcanvasElement);
+        offcanvasInstance.show();
+      }
+
+      function updateOffcanvasTable() {
+  var selectedItemDetails = document.getElementById('selectedItemDetails');
+  var flexContent = `<div class="d-flex flex-column">`;
+
+  let subtotal = 0;
+  Object.keys(selectedItems).forEach(itemId => {
+    let item = selectedItems[itemId];
+    subtotal += item.total;
+    flexContent += `<div class="d-flex justify-content-between align-items-center my-2 p-2 bg-white shadow-sm rounded">
+                      <div class="d-flex flex-column">
+                        <div class="fw-bold">${item.itemName}</div>
+                        <div class="fw-bold">${item.total.toFixed(2)} ETB</div>
+                      </div>
+                      <div class="ms-auto">
+                        <button class="remove-item-btn btn text-danger"  data-item-id="${itemId}">Remove</i></button>
+                      </div>
+                      <div class="d-flex align-items-center border rounded pill bg-secondary-subtle">
+                        <button type="button" aria-label="Decrease value" class="py-0 btn btn-white btn-sm border border-0 change-quantity-offcanvas-btn" data-action="decrease" data-item-id="${itemId}">-</button>
+                        <input type="number" class="form-control text-center px-0 py-1 border border-0" style="max-width: 50px;" id="quantityInput${itemId}" min="1" value="${item.quantity}" readonly>
+                        <button type="button" aria-label="Increase value" class="py-1 btn btn-white btn-sm border border-0 change-quantity-offcanvas-btn" data-action="increase" data-item-id="${itemId}">+</button>
+                      </div>                      
+                    </div>`;
+  });
+
+  let effectiveDeliveryCharge = Object.keys(selectedItems).length > 0 ? DELIVERY_CHARGE : 0;
+  let tax = subtotal * TAX_RATE;
+  let total = subtotal + tax + effectiveDeliveryCharge;
+
+  // Close the flex container
+  flexContent += `</div>`;
+
+  // Append summary
+  flexContent += `<div class="summary mt-4 p-1 bg-light rounded shadow-sm">
+                    <div class="d-flex justify-content-between p-0">
+                      <p class="mb-0">Subtotal:</p>
+                      <p class="mb-0"><span class="fw-bold">$${subtotal.toFixed(2)}</span></p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <p class="mb-0">Tax (${(TAX_RATE * 100).toFixed(0)}%):</p>
+                      <p class="mb-0"><span class="fw-bold">$${tax.toFixed(2)}</span></p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <p class="mb-0">Delivery Charge:</p>
+                      <p class="mb-0"><span class="fw-bold">$${effectiveDeliveryCharge.toFixed(2)}</span></p>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between fw-bold">
+                      <p>Total:</p>
+                      <p>$${total.toFixed(2)}</p>
+                    </div>
+                 </div>`;
+
+  selectedItemDetails.innerHTML = flexContent;
+
+  // Add event listeners to the remove buttons after the content is updated
+  document.querySelectorAll('.remove-item-btn').forEach(button => {
+    button.addEventListener('click', function () {
+      var itemId = this.getAttribute('data-item-id');
+      removeItemFromCart(itemId);
+    });
+  });
+
+  // Add event listeners to the change quantity buttons in offcanvas
+  document.querySelectorAll('.change-quantity-offcanvas-btn').forEach(button => {
+    button.addEventListener('click', function () {
+      var action = this.getAttribute('data-action');
+      var itemId = this.getAttribute('data-item-id');
+      changeQuantityOffcanvas(action, itemId);
+    });
+  });
+}
+
+      function removeItemFromCart(itemId) {
+        // Remove the item from the selectedItems object
+        delete selectedItems[itemId];
+        // Update the offcanvas table to reflect the removal
+        updateOffcanvasTable();
+        updateCartItemCount();
+      }
+
+      function changeQuantityOffcanvas(action, itemId) {
+        if (selectedItems[itemId]) {
+          var item = selectedItems[itemId];
+          if (action === 'increase') {
+            item.quantity += 1;
+            item.total += item.total / (item.quantity - 1); // Calculate the single item price and add it
+          } else if (action === 'decrease' && item.quantity > 1) {
+            item.total -= item.total / item.quantity; // Calculate the single item price and subtract it
+            item.quantity -= 1;
+          } else {
+            alert("Quantity cannot be less than 1.");
+            return;
+          }
+          updateOffcanvasTable();
+        }
+      }
+
+      // Passing the selected data to the controller
+      document.querySelector('.btn-checkout').addEventListener('click', function () {
+        // Perform Ajax request to send selectedItems to Laravel controller
+        fetch('/checkout', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}' // Ensure you have CSRF token available in your view
+          },
+          body: JSON.stringify(selectedItems)
+        })
+          .then(response => response.json())
+          .then(data => {
+            // Redirect or handle response as needed
+            if (data.success) {
+              window.location.href = '/payment/form'; // Redirect to payment form
+            } else {
+              alert('Failed to process order. Please try again.');
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again.');
+          });
+      });
+    });
+
+    document.getElementById('checkoutButton').addEventListener('click', function () {
+      // Disable the button
+      this.disabled = true;
+
+      // Show the spinner
+      document.getElementById('spinner').classList.remove('d-none');
+
+      // Optionally, you can add code here to handle the checkout process (e.g., making an AJAX request)
+    });
+
+  </script>
+</body>
+
+</html>

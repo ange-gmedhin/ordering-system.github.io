@@ -1,0 +1,114 @@
+:root {
+  --main-bg-color: rgb(84, 134, 135);
+  --main-text-color: #f3f3f3;
+  --accent-color: #ff6347;
+}
+/* Active tab style */
+.nav-tabs .nav-link.active {
+  background-color: #d69f7e !important; /* Light background for contrast */
+  color: #000 !important; /* Color from main background */
+  border: #d69f7e;
+  font-weight: 700;
+}
+.nav-tabs .nav-link:not(.active) {
+  background-color: var(--main-bg-color) !important; /* Light background for contrast */
+  color: #fff !important; /* Color from main background */
+  border: 1px solid var(--main-bg-color);
+}
+
+/* Hover effect for tabs */
+.nav-tabs .nav-link:not(.active):hover {
+  background-color: #fff !important; /* Slightly lighter for hover */
+  color: #000 !important;
+}
+
+.rounded-circle {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.price:hover {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+
+.custom-checkbox:checked {
+  background-color: var(--main-bg-color);
+  box-shadow: 0 0 0 4px rgba(84, 134, 135, 0.7);
+}
+
+.minus-button, .plus-button {
+  display: inline-flex; /* Use inline-flex for better control over content alignment */
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem; 
+  padding: 0;
+  line-height: 1; 
+  color: var(--main-bg-color);
+}
+.minus-button:hover, .plus-button:hover {
+  background-color: #FFF; 
+  color: var(--main-bg-color); 
+}
+
+.minus-button::before, .plus-button::before {
+  margin: 0; /* Ensuring no default margins interfere with centering */
+}
+
+/* For Chrome, Safari, and Edge */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* For Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.hover-opacity:hover {
+  opacity: 0.8;
+  transition: opacity .3s ease-in-out;
+}
+.hover-opacity:hover + .price {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+.price {
+  box-shadow: 0 0 0 5px rgba(84, 134, 135, 0.7);
+  transition: all 0.3s ease-in-out;
+  font-size: 1.1rem;
+}
+
+tfoot tr td {
+  border: none;
+  font-weight: bold;
+  background-color: #f8f9fa; /* Light grey background */
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+
+tfoot tr:last-child td {
+  color: var(--main-bg-color); /* Blue color for the grand total */
+}
+
+
+.btn-checkout {
+  transition: background-color 0.3s ease;
+}
+
+.btn-checkout:enabled {
+  background-color: var(--main-bg-color); /* Your enabled background color */
+  cursor: pointer;
+}
+
+.btn-checkout:disabled {
+  background-color: #ccc; /* Your disabled background color */
+  cursor: not-allowed;
+  opacity: 0.7; /* Optional: Reduce opacity to visually indicate disabled state */
+}
+.btn-outline-light:hover{
+  color: #000 !important;
+}
